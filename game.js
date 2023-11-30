@@ -37,6 +37,17 @@ export default class Game {
         this.blobs = [];
         this.foodBlobs = [];
 
+
+
+        
+        
+        // 0 = normal game, 1 = start of game, 2 = transition to start, 3 = end game screen/score.
+        this.gameState = 1;
+        
+    }
+    start(name) {
+        this.player.name = name;
+        this.player.r = 55;
         for (let i = 0; i < 200; i ++) {
             this.blobs.push(new Blob(this,this.utils.randItem(this.aiStates))); // 
         }
@@ -44,12 +55,17 @@ export default class Game {
         for (let i = 0; i < 3500; i ++) {
             this.foodBlobs.push(new Food(this));
         }
-
-
-        this.gameState = 0
-        
+        this.gameState = 0;
     }
 
+    end() {
+        this.clearObjects();
+    }
+
+    clearObjects() {
+        this.blobs = [];
+        this.foodBlobs = [];
+    }
     update() {
         this.grid.update();
         this.player.update();
@@ -71,6 +87,7 @@ export default class Game {
         this.blobs = this.blobs.filter(b => !b.deleted);
         this.foodBlobs = this.foodBlobs.filter(b => !b.deleted);
         //console.log(this.foodBlobs.length)
+
     }
 
     draw(ctx) {
@@ -85,9 +102,7 @@ export default class Game {
         this.blobs.forEach(blob => {
             blob.draw(ctx)
         });
-
-        
-
+    
     }
 
     newBlob() {

@@ -1,4 +1,36 @@
-body, html {
+body,
+html {
+    /* background-color: blue; */
+    display: flex;
     margin: 0 auto;
-    overflow: hidden;
+    /* overflow: hidden; */
+    /* flex-direction: column; */
+}
+
+#nameInput {
+    /* background-color: red; */
+    margin-top: 10px;
+    padding: 10px;
+}
+
+#startDiv {
+    /* background-color: brown; */
+    display: flex;
+    flex-direction: column;
+}
+
+#startBtn {
+    /* background-color: purple; */
+    margin-top: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+h5 {
+    /* background-color: yellow; */
+    margin-top: 35vh;
+    display: flex;
+    justify-content: center;
 }

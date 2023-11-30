@@ -113,7 +113,8 @@ export default class Blob {
 
                         if (obj.r > this.r && !(obj.ai == "spikey")) {
                             min = Infinity
-                            obj = null
+                            // obj = null // <-- ??
+                            // obj.deleted = true;
                         }
                         let possibleTargets = this.game.blobs;
                         possibleTargets = possibleTargets.filter(f => (f.r < this.r) && !(f.ai == "spikey"))
@@ -126,7 +127,7 @@ export default class Blob {
                                 }
                             }
                         });
-
+                        // console.log(obj);
                         let calcX = obj.x - this.x;
                         let calcY = obj.y - this.y;
                         this.direction = (Math.atan2(calcX,calcY) * (180/Math.PI))
